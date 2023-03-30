@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.ps2001.githubapp.data.User
 import com.ps2001.githubapp.databinding.ItemUserBinding
 
-class MainAdapter(private val listUser: List<String>) : RecyclerView.Adapter<MainAdapter.ListViewHolder>(){
+class MainAdapter(private val listUser: List<User>) : RecyclerView.Adapter<MainAdapter.ListViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,11 +15,11 @@ class MainAdapter(private val listUser: List<String>) : RecyclerView.Adapter<Mai
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val username = listUser[position]
-        holder.binding.usernameGithub.text = username
-//        Glide.with(holder.binding.imgUserGithub)
-//            .load(avatar_img)
-//            .into(holder.binding.imgUserGithub)
+        val user : User = listUser[position]
+        holder.binding.usernameGithub.text = user.username
+        Glide.with(holder.binding.imgUserGithub)
+            .load(user.avatar_url)
+            .into(holder.binding.imgUserGithub)
     }
 
     override fun getItemCount(): Int = listUser.size

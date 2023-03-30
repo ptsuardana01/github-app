@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ps2001.githubapp.adapter.MainAdapter
 import com.ps2001.githubapp.api.ApiConfig
+import com.ps2001.githubapp.data.User
 import com.ps2001.githubapp.databinding.ActivityMainBinding
 import com.ps2001.githubapp.response.GithubResponse
 import com.ps2001.githubapp.response.ItemsItem
@@ -58,12 +59,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUser(items: List<ItemsItem>) {
-        val listUsername = ArrayList<String>()
-        for (username in items) {
+        val listUsername = ArrayList<User>()
+        for (data in items) {
             listUsername.add(
-                """
-                    ${username.login}
-                """.trimIndent()
+                User(data.login, data.avatarUrl)
             )
         }
         val listUser = MainAdapter(listUsername)
@@ -87,6 +86,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
-        private const val QUERY_USER = "ab"
+        private const val QUERY_USER = "tutur"
     }
 }

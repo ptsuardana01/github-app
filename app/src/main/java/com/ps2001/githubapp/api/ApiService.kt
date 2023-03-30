@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("search/users")
+    @GET("search/users") //search/users?q=....
     fun getUserGithub(
         @Query("q") query: String
     ):Call<GithubResponse>
