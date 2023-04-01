@@ -2,4 +2,6 @@
     <string name="app_name">GithubApp</string>
     <string name="search">Search</string>
     <string name="search_hint">Enter a word</string>
+    <string name="followers_detail">Followers</string>
+    <string name="following_detail">Following</string>
 </resources>
