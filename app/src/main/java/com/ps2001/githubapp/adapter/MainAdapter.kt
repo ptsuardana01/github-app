@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ps2001.githubapp.data.User
 import com.ps2001.githubapp.databinding.ItemUserBinding
+import com.ps2001.githubapp.response.ItemsItem
 
-class MainAdapter(private val listUser: List<User>) : RecyclerView.Adapter<MainAdapter.ListViewHolder>(){
+class MainAdapter(private val listUser: List<ItemsItem>) : RecyclerView.Adapter<MainAdapter.ListViewHolder>(){
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,14 +18,26 @@ class MainAdapter(private val listUser: List<User>) : RecyclerView.Adapter<MainA
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val user : User = listUser[position]
-        holder.binding.usernameGithub.text = user.username
+        val user = listUser[position]
+        holder.binding.usernameGithub.text = user.login
         Glide.with(holder.binding.imgUserGithub)
-            .load(user.avatar_url)
+            .load(user.avatarUrl)
             .into(holder.binding.imgUserGithub)
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(listUser[holder.adapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = listUser.size
 
     class ListViewHolder(var binding : ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: ItemsItem)
+    }
 }

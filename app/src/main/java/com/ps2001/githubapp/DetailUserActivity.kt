@@ -15,4 +15,8 @@ class DetailUserActivity : AppCompatActivity() {
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    companion object {
+        const val EXTRA_USERNAME = "extra_username"
+    }
 }
