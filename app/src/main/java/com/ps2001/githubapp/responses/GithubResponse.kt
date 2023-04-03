@@ -1,4 +1,4 @@
-package com.ps2001.githubapp.response
+package com.ps2001.githubapp.responses
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,7 +11,7 @@ data class GithubResponse(
 	val incompleteResults: Boolean,
 
 	@field:SerializedName("items")
-	val items: List<ItemsItem>
+	val items: List<ItemsItem>,
 )
 
 data class ItemsItem(

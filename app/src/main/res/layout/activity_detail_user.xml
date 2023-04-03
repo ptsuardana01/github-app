@@ -6,16 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".DetailUserActivity">
 
+
     <TextView
         android:id="@+id/name_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/img_user_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/included_tabs"
         tools:text="Putu Suardana" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -50,6 +52,7 @@
         android:layout_marginEnd="150dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_detail"
@@ -63,28 +66,33 @@
         android:layout_marginStart="150dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_detail"
         tools:text="100" />
 
     <TextView
+        android:id="@+id/followers_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="150dp"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_detail"
         android:text="@string/followers_detail" />
 
     <TextView
+        android:id="@+id/followings_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginStart="150dp"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_detail"
@@ -96,6 +104,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="350dp" />
+        app:layout_constraintGuide_begin="330dp" />
+
+    <include
+        android:id="@+id/included_tabs"
+        layout="@layout/tab_layout"/>
+
+    <include
+        android:id="@+id/loading_screen"
+        layout="@layout/loading_screen"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

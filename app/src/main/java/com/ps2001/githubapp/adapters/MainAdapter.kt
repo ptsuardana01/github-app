@@ -1,12 +1,11 @@
-package com.ps2001.githubapp.adapter
+package com.ps2001.githubapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ps2001.githubapp.data.User
 import com.ps2001.githubapp.databinding.ItemUserBinding
-import com.ps2001.githubapp.response.ItemsItem
+import com.ps2001.githubapp.responses.ItemsItem
 
 class MainAdapter(private val listUser: List<ItemsItem>) : RecyclerView.Adapter<MainAdapter.ListViewHolder>(){
 

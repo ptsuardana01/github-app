@@ -1,4 +1,4 @@
-package com.ps2001.githubapp.response
+package com.ps2001.githubapp.responses
 
 import com.google.gson.annotations.SerializedName
 
@@ -98,5 +98,5 @@ data class DetailGithubResponse(
 	val location: String,
 
 	@field:SerializedName("node_id")
-	val nodeId: String
+	val nodeId: String,
 )
