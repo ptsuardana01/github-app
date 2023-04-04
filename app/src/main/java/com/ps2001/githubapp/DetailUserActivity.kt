@@ -33,8 +33,10 @@ class DetailUserActivity : AppCompatActivity() {
         if (username != null) {
             mainViewModel.getDetailUser(username)
             val sectionsPagerAdapter = SectionsPagerAdapter(this, username)
-            binding.includedTabs.viewPager.adapter = sectionsPagerAdapter
-            TabLayoutMediator(binding.includedTabs.tabs, binding.includedTabs.viewPager) { tab, position ->
+            val viewPager: ViewPager2 = binding.includedTabs.viewPager
+            viewPager.adapter = sectionsPagerAdapter
+            val tabs: TabLayout = binding.includedTabs.tabs
+            TabLayoutMediator(tabs, viewPager) { tab, position ->
                 tab.text = resources.getString(TAB_TITLES[position])
             }.attach()
         }

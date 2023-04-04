@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val searchView = menu.findItem(R.id.search).actionView as SearchView
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search_hint)
+        searchView.queryHint = resources.getString(R.string.search_user)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 mainViewModel.setSearchQuery(query)
@@ -59,6 +59,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
+                /* Jika mengimplementasikan ini, harus memiliki limit req API yg Besar
+                mainViewModel.setSearchQuery(newText)
+                mainViewModel.vmListUser.observe(this@MainActivity) {
+                    setUser(it)
+                }
+                searchView.clearFocus()
+                */
                 return false
             }
         })

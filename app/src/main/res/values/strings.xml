@@ -12,6 +12,8 @@
 
     <!--  Menu Source  -->
     <string name="search_user">Search User</string>
-    <string name="favorite_list">Favorite List</string>
-    <string name="settings">Setting</string>
+    <string name="favorite_list">Favorite</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="add_to_favorite">Add to Favorite</string>
 </resources>

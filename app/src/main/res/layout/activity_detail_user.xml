@@ -111,6 +111,12 @@
         layout="@layout/tab_layout"/>
 
     <include
+        android:id="@+id/included_fav_floating"
+        layout="@layout/fav_floating"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
         android:id="@+id/loading_screen"
         layout="@layout/loading_screen"/>
 
