@@ -7,13 +7,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_user"/>
+        app:layout_constraintTop_toTopOf="@+id/loading_screen"
+        tools:listitem="@layout/item_user" />
 
     <include
         android:id="@+id/loading_screen"

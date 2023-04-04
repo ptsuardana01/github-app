@@ -79,11 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.loadingScreen.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.loadingScreen.progressBar.visibility = View.GONE
-        }
+        binding.loadingScreen.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showRecyclerView() {

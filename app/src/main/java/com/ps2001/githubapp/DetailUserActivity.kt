@@ -33,10 +33,8 @@ class DetailUserActivity : AppCompatActivity() {
         if (username != null) {
             mainViewModel.getDetailUser(username)
             val sectionsPagerAdapter = SectionsPagerAdapter(this, username)
-            val viewPager: ViewPager2 = findViewById(R.id.view_pager)
-            viewPager.adapter = sectionsPagerAdapter
-            val tabs: TabLayout = findViewById(R.id.tabs)
-            TabLayoutMediator(tabs, viewPager) { tab, position ->
+            binding.includedTabs.viewPager.adapter = sectionsPagerAdapter
+            TabLayoutMediator(binding.includedTabs.tabs, binding.includedTabs.viewPager) { tab, position ->
                 tab.text = resources.getString(TAB_TITLES[position])
             }.attach()
         }
@@ -53,26 +51,32 @@ class DetailUserActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         if (isLoading) {
-            binding.loadingScreen.progressBar.visibility = View.VISIBLE
-            binding.includedTabs.tabs.visibility = View.INVISIBLE
-            binding.followersText.visibility = View.INVISIBLE
-            binding.followingsText.visibility = View.INVISIBLE
+            binding.apply {
+                loadingScreen.progressBar.visibility = View.VISIBLE
+                includedTabs.tabs.visibility = View.INVISIBLE
+                followersText.visibility = View.INVISIBLE
+                followingsText.visibility = View.INVISIBLE
+            }
         } else {
-            binding.loadingScreen.progressBar.visibility = View.GONE
-            binding.includedTabs.tabs.visibility = View.VISIBLE
-            binding.followersText.visibility = View.VISIBLE
-            binding.followingsText.visibility = View.VISIBLE
+            binding.apply {
+                loadingScreen.progressBar.visibility = View.GONE
+                includedTabs.tabs.visibility = View.VISIBLE
+                followersText.visibility = View.VISIBLE
+                followingsText.visibility = View.VISIBLE
+            }
         }
     }
 
     private fun getDetailUser(details: DetailGithubResponse?) {
-        binding.usernameDetail.text = "@${details?.login.toString()}"
-        binding.nameDetail.text = details?.name.toString()
-        binding.followersDetail.text = details?.followers.toString()
-        binding.followingDetail.text = details?.following.toString()
-        Glide.with(this)
-            .load(details?.avatarUrl)
-            .into(binding.imgUserDetail)
+        binding.apply {
+            usernameDetail.text = "@${details?.login.toString()}"
+            nameDetail.text = details?.name.toString()
+            followersDetail.text = details?.followers.toString()
+            followingDetail.text = details?.following.toString()
+            Glide.with(this@DetailUserActivity)
+                .load(details?.avatarUrl)
+                .into(imgUserDetail)
+        }
     }
 
     companion object {
