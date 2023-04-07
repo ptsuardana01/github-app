@@ -1,5 +1,6 @@
-package com.ps2001.githubapp.api
+package com.ps2001.githubapp.data.api
 
+import com.ps2001.githubapp.data.local.entity.Favorite
 import com.ps2001.githubapp.responses.DetailGithubResponse
 import com.ps2001.githubapp.responses.GithubResponse
 import com.ps2001.githubapp.responses.ItemsItem
@@ -12,6 +13,11 @@ interface ApiService {
     fun getUserGithub(
         @Query("q") query: String,
     ): Call<GithubResponse>
+
+//    @GET("search/users")
+//    fun getFavoriteUser(
+//        @Query("q") query: String,
+//    ): Call<GithubResponse>
 
     @GET("users/{username}")
     fun getDetailUserGithub(

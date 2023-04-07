@@ -1,4 +1,4 @@
-package com.ps2001.githubapp.adapters
+package com.ps2001.githubapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

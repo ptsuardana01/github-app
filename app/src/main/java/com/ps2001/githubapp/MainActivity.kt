@@ -5,13 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ps2001.githubapp.adapters.MainAdapter
+import com.ps2001.githubapp.ui.adapters.MainAdapter
 import com.ps2001.githubapp.databinding.ActivityMainBinding
 import com.ps2001.githubapp.model.MainViewModel
 import com.ps2001.githubapp.responses.ItemsItem
@@ -70,6 +71,16 @@ class MainActivity : AppCompatActivity() {
             }
         })
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite_menu -> {
+                val intentToFavList = Intent(this@MainActivity, FavoriteUserListActivity::class.java)
+                startActivity(intentToFavList)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setUser(items: List<ItemsItem>) {

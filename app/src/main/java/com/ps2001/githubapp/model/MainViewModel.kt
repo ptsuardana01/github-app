@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ps2001.githubapp.api.ApiConfig
+import com.ps2001.githubapp.data.api.ApiConfig
 import com.ps2001.githubapp.responses.DetailGithubResponse
 import com.ps2001.githubapp.responses.GithubResponse
 import com.ps2001.githubapp.responses.ItemsItem

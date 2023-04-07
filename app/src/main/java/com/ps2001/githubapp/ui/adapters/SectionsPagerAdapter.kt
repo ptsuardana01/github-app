@@ -1,10 +1,10 @@
-package com.ps2001.githubapp.adapters
+package com.ps2001.githubapp.ui.adapters
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.ps2001.githubapp.fragments.FollowFragment
+import com.ps2001.githubapp.ui.fragments.FollowFragment
 
 class SectionsPagerAdapter(activity: AppCompatActivity, private var username: String) :
     FragmentStateAdapter(activity) {

@@ -1,4 +1,4 @@
-package com.ps2001.githubapp.fragments
+package com.ps2001.githubapp.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ps2001.githubapp.adapters.FollowAdapter
+import com.ps2001.githubapp.ui.adapters.FollowAdapter
 import com.ps2001.githubapp.databinding.FragmentFollowBinding
 import com.ps2001.githubapp.model.MainViewModel
 

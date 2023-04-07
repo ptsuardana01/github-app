@@ -1,14 +1,15 @@
-package com.ps2001.githubapp.local.entity
+package com.ps2001.githubapp.data.local.entity
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "favorite")
 @Parcelize
 data class Favorite(
     @PrimaryKey(autoGenerate = false)
     var username: String = "",
-    var avatarUrl: String? = null,
+    var avatarUrl: String = "",
 ) : Parcelable
