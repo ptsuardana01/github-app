@@ -1,4 +1,4 @@
-package com.ps2001.githubapp
+package com.ps2001.githubapp.ui
 
 import android.content.Intent
 import android.os.Bundle

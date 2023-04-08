@@ -9,13 +9,26 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ps2001.githubapp.data.local.datastore.SettingPreferences
 import com.ps2001.githubapp.ui.adapters.MainAdapter
 import com.ps2001.githubapp.databinding.ActivityMainBinding
 import com.ps2001.githubapp.model.MainViewModel
+import com.ps2001.githubapp.model.SettingModeViewModel
+import com.ps2001.githubapp.model.SettingViewModelFactory
 import com.ps2001.githubapp.responses.ItemsItem
+import com.ps2001.githubapp.ui.DetailUserActivity
+import com.ps2001.githubapp.ui.FavoriteUserListActivity
+import com.ps2001.githubapp.ui.SettingActivity
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +50,17 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.isLoading.observe(this) {
             showLoading(it)
+        }
+
+        val pref = SettingPreferences.getInstance(dataStore)
+        val settingViewModel = ViewModelProvider(this, SettingViewModelFactory(pref))[SettingModeViewModel::class.java]
+
+        settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
     }
 
@@ -78,6 +102,10 @@ class MainActivity : AppCompatActivity() {
             R.id.favorite_menu -> {
                 val intentToFavList = Intent(this@MainActivity, FavoriteUserListActivity::class.java)
                 startActivity(intentToFavList)
+            }
+            R.id.settings -> {
+                val intentToSetting = Intent(this@MainActivity, SettingActivity::class.java)
+                startActivity(intentToSetting)
             }
         }
         return super.onOptionsItemSelected(item)

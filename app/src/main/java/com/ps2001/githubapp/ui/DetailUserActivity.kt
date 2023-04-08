@@ -1,4 +1,4 @@
-package com.ps2001.githubapp
+package com.ps2001.githubapp.ui
 
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.ps2001.githubapp.R
 import com.ps2001.githubapp.ui.adapters.SectionsPagerAdapter
 import com.ps2001.githubapp.databinding.ActivityDetailUserBinding
 import com.ps2001.githubapp.model.FavoriteViewModel

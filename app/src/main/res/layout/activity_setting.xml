@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FavoriteUserListActivity">
+    tools:context=".ui.SettingActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fav_user_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dark_mode"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/loading_screen"
-        layout="@layout/loading_screen"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,17 +8,20 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo_github"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_logo_github_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubApp"
         tools:targetApi="31">
         <activity
-            android:name=".FavoriteUserListActivity"
+            android:name=".ui.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailUserActivity"
+            android:name=".ui.FavoriteUserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DetailUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
